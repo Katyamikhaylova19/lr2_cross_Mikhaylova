@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\weeklyschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\weeklyschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\classschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\classschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +43,67 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\ApplicationDbContext.cs",
+              "RelativeToolTip": "ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T17:28:55.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WeeklySchedule.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\WeeklySchedule.cs",
+              "RelativeDocumentMoniker": "Models\\WeeklySchedule.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\WeeklySchedule.cs",
+              "RelativeToolTip": "Models\\WeeklySchedule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T17:22:18.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClassSchedule.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\ClassSchedule.cs",
+              "RelativeDocumentMoniker": "Models\\ClassSchedule.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\ClassSchedule.cs",
+              "RelativeToolTip": "Models\\ClassSchedule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T17:20:55.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Subject.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Subject.cs",
+              "RelativeDocumentMoniker": "Models\\Subject.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Subject.cs",
+              "RelativeToolTip": "Models\\Subject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T17:19:15.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T16:46:47.187Z"
             }
           ]
         }
