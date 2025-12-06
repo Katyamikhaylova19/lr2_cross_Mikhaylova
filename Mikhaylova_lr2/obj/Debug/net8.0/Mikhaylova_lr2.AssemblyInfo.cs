@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mikhaylova_lr2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea8e7c3103465493053c230b94f5d7089b1dda22")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0884b0f7aa5182591a25df37456b98f5ef37cacc")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mikhaylova_lr2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mikhaylova_lr2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
