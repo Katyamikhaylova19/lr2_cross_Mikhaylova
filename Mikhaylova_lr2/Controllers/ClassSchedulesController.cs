@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Mikhaylova_lr2.Models;
+using Mikhaylova_lr2.Services;
 
 namespace Mikhaylova_lr2.Controllers
 {
@@ -10,11 +10,11 @@ namespace Mikhaylova_lr2.Controllers
     [Authorize]
     public class ClassSchedulesController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IClassScheduleService _classScheduleService;
 
-        public ClassSchedulesController(ApplicationDbContext context)
+        public ClassSchedulesController(IClassScheduleService classScheduleService)
         {
-            _context = context;
+            _classScheduleService = classScheduleService;
         }
 
         // GET: api/ClassSchedules
@@ -22,9 +22,8 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<IEnumerable<ClassSchedule>>> GetClassSchedules()
         {
-            return await _context.ClassSchedules
-                .Include(c => c.Subject)
-                .ToListAsync();
+            var schedules = await _classScheduleService.GetAllAsync();
+            return Ok(schedules);
         }
 
         // GET: api/ClassSchedules/5
@@ -32,15 +31,11 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<ClassSchedule>> GetClassSchedule(int id)
         {
-            var classSchedule = await _context.ClassSchedules
-                .Include(c => c.Subject)
-                .FirstOrDefaultAsync(c => c.Id == id);
-
+            var classSchedule = await _classScheduleService.GetByIdAsync(id);
             if (classSchedule == null)
             {
                 return NotFound();
             }
-
             return classSchedule;
         }
 
@@ -49,20 +44,15 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "AdminOnly")]
         public async Task<ActionResult<ClassSchedule>> PostClassSchedule(ClassSchedule classSchedule)
         {
-            if (!classSchedule.IsValid())
+            try
             {
-                return BadRequest("Данные о занятии невалидны");
+                var createdSchedule = await _classScheduleService.CreateAsync(classSchedule);
+                return CreatedAtAction("GetClassSchedule", new { id = createdSchedule.Id }, createdSchedule);
             }
-
-            if (!classSchedule.IsValidGroupNumber())
+            catch (ArgumentException ex)
             {
-                return BadRequest("Номер группы должен быть в формате XX-00-00");
+                return BadRequest(ex.Message);
             }
-
-            _context.ClassSchedules.Add(classSchedule);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetClassSchedule", new { id = classSchedule.Id }, classSchedule);
         }
 
         // PUT: api/ClassSchedules/5
@@ -75,30 +65,23 @@ namespace Mikhaylova_lr2.Controllers
                 return BadRequest();
             }
 
-            if (!classSchedule.IsValid())
-            {
-                return BadRequest("Данные о занятии невалидны");
-            }
-
-            _context.Entry(classSchedule).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                await _classScheduleService.UpdateAsync(classSchedule);
+                return NoContent();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (ArgumentException ex)
             {
-                if (!ClassScheduleExists(id))
+                return BadRequest(ex.Message);
+            }
+            catch (Exception)
+            {
+                if (!await _classScheduleService.ExistsAsync(id))
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
-
-            return NoContent();
         }
 
         // DELETE: api/ClassSchedules/5
@@ -106,16 +89,15 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "AdminOnly")]
         public async Task<IActionResult> DeleteClassSchedule(int id)
         {
-            var classSchedule = await _context.ClassSchedules.FindAsync(id);
-            if (classSchedule == null)
+            try
             {
-                return NotFound();
+                await _classScheduleService.DeleteAsync(id);
+                return NoContent();
             }
-
-            _context.ClassSchedules.Remove(classSchedule);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            catch (Exception)
+            {
+                return StatusCode(500, "Internal server error");
+            }
         }
 
         // === ЗАПРОСЫ С ИСПОЛЬЗОВАНИЕМ LINQ ===
@@ -125,14 +107,8 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<IEnumerable<ClassSchedule>>> GetScheduleByGroup(string groupNumber)
         {
-            var schedules = await _context.ClassSchedules
-                .Include(c => c.Subject)
-                .Where(c => c.GroupNumber == groupNumber)
-                .OrderBy(c => c.Date)
-                .ThenBy(c => c.PairNumber)
-                .ToListAsync();
-
-            return schedules;
+            var schedules = await _classScheduleService.GetByGroupAsync(groupNumber);
+            return Ok(schedules);
         }
 
         // 2. Получить расписание для определенного преподавателя
@@ -140,14 +116,8 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<IEnumerable<ClassSchedule>>> GetScheduleByTeacher(string teacherName)
         {
-            var schedules = await _context.ClassSchedules
-                .Include(c => c.Subject)
-                .Where(c => c.TeacherName.Contains(teacherName))
-                .OrderBy(c => c.Date)
-                .ThenBy(c => c.PairNumber)
-                .ToListAsync();
-
-            return schedules;
+            var schedules = await _classScheduleService.GetByTeacherAsync(teacherName);
+            return Ok(schedules);
         }
 
         // 3. Получить расписание на определенную дату
@@ -155,13 +125,8 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<IEnumerable<ClassSchedule>>> GetScheduleByDate(DateTime date)
         {
-            var schedules = await _context.ClassSchedules
-                .Include(c => c.Subject)
-                .Where(c => c.Date.Date == date.Date)
-                .OrderBy(c => c.PairNumber)
-                .ToListAsync();
-
-            return schedules;
+            var schedules = await _classScheduleService.GetByDateAsync(date);
+            return Ok(schedules);
         }
 
         // 4. Получить занятия по типу (лекция/семинар/лабораторная)
@@ -169,14 +134,8 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<IEnumerable<ClassSchedule>>> GetScheduleByType(string classType)
         {
-            var schedules = await _context.ClassSchedules
-                .Include(c => c.Subject)
-                .Where(c => c.ClassType.ToLower() == classType.ToLower())
-                .OrderBy(c => c.Date)
-                .ThenBy(c => c.PairNumber)
-                .ToListAsync();
-
-            return schedules;
+            var schedules = await _classScheduleService.GetByTypeAsync(classType);
+            return Ok(schedules);
         }
 
         // 5. Получить сводку по аудиториям (какие аудитории заняты в выбранный день)
@@ -184,46 +143,17 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<IEnumerable<string>>> GetBusyClassrooms(DateTime date)
         {
-            var classrooms = await _context.ClassSchedules
-                .Where(c => c.Date.Date == date.Date)
-                .Select(c => c.Classroom)
-                .Distinct()
-                .OrderBy(c => c)
-                .ToListAsync();
-
-            return classrooms;
+            var classrooms = await _classScheduleService.GetBusyClassroomsAsync(date);
+            return Ok(classrooms);
         }
 
-        // 6. Получить все занятия с информацией о предмете (используем Select для проекции)
+        // 6. Получить все занятия с информацией о предмете
         [HttpGet("with-subject-info")]
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<IEnumerable<object>>> GetSchedulesWithSubjectInfo()
         {
-            var schedules = await _context.ClassSchedules
-                .Include(c => c.Subject)
-                .Select(c => new
-                {
-                    c.Id,
-                    Date = c.Date.ToString("yyyy-MM-dd"),
-                    Day = c.DayOfWeek,
-                    Time = c.GetPairTime(),
-                    SubjectName = c.Subject.Name,
-                    c.Classroom,
-                    c.GroupNumber,
-                    c.ClassType,
-                    c.TeacherName
-                })
-                .OrderBy(c => c.Date)
-                .ThenBy(c => c.Day)
-                .ThenBy(c => c.Time)
-                .ToListAsync();
-
-            return schedules;
-        }
-
-        private bool ClassScheduleExists(int id)
-        {
-            return _context.ClassSchedules.Any(e => e.Id == id);
+            var schedules = await _classScheduleService.GetSchedulesWithSubjectInfoAsync();
+            return Ok(schedules);
         }
     }
 }

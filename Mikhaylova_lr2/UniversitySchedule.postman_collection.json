@@ -91,7 +91,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"Математика\"\n}"
+              "raw": "{\n    \"name\": \"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\"\n}"
             },
             "url": {
               "raw": "{{base_url}}/api/subjects",
@@ -138,7 +138,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"subjectId\": 1,\n    \"date\": \"2024-01-15T00:00:00\",\n    \"dayOfWeek\": 1,\n    \"pairNumber\": 1,\n    \"classroom\": \"101\",\n    \"groupNumber\": \"ИВ-22-01\",\n    \"classType\": \"лекция\",\n    \"teacherName\": \"Иванов И.И.\"\n}"
+              "raw": "{\n    \"subjectId\": 1,\n    \"date\": \"2024-01-15T00:00:00\",\n    \"dayOfWeek\": 1,\n    \"pairNumber\": 1,\n    \"classroom\": \"101\",\n    \"groupNumber\": \"пїЅпїЅ-22-01\",\n    \"classType\": \"пїЅпїЅпїЅпїЅпїЅпїЅ\",\n    \"teacherName\": \"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.\"\n}"
             },
             "url": {
               "raw": "{{base_url}}/api/classschedules",
@@ -163,9 +163,9 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/api/classschedules/group/ИВ-22-01",
+              "raw": "{{base_url}}/api/classschedules/group/пїЅпїЅ-22-01",
               "host": [ "{{base_url}}" ],
-              "path": [ "api", "classschedules", "group", "ИВ-22-01" ]
+              "path": [ "api", "classschedules", "group", "пїЅпїЅ-22-01" ]
             }
           }
         },
@@ -180,9 +180,9 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/api/classschedules/teacher/Иванов",
+              "raw": "{{base_url}}/api/classschedules/teacher/пїЅпїЅпїЅпїЅпїЅпїЅ",
               "host": [ "{{base_url}}" ],
-              "path": [ "api", "classschedules", "teacher", "Иванов" ]
+              "path": [ "api", "classschedules", "teacher", "пїЅпїЅпїЅпїЅпїЅпїЅ" ]
             }
           }
         },
@@ -214,9 +214,9 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/api/classschedules/type/лекция",
+              "raw": "{{base_url}}/api/classschedules/type/пїЅпїЅпїЅпїЅпїЅпїЅ",
               "host": [ "{{base_url}}" ],
-              "path": [ "api", "classschedules", "type", "лекция" ]
+              "path": [ "api", "classschedules", "type", "пїЅпїЅпїЅпїЅпїЅпїЅ" ]
             }
           }
         },
@@ -270,9 +270,9 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/api/weeklyschedules/group/ИВ-22-01/week/1",
+              "raw": "{{base_url}}/api/weeklyschedules/group/пїЅпїЅ-22-01/week/1",
               "host": [ "{{base_url}}" ],
-              "path": [ "api", "weeklyschedules", "group", "ИВ-22-01", "week", "1" ]
+              "path": [ "api", "weeklyschedules", "group", "пїЅпїЅ-22-01", "week", "1" ]
             }
           }
         },
@@ -299,7 +299,7 @@
   "variable": [
     {
       "key": "base_url",
-      "value": "https://localhost:7032",
+      "value": "https://localhost:7036",
       "type": "string"
     },
     {

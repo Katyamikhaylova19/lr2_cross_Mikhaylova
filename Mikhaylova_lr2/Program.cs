@@ -2,11 +2,17 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Mikhaylova_lr2;
+using Mikhaylova_lr2.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Добавление сервисов
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IClassScheduleService, ClassScheduleService>();
+builder.Services.AddScoped<ISubjectService, SubjectService>();
+builder.Services.AddScoped<IWeeklyScheduleService, WeeklyScheduleService>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

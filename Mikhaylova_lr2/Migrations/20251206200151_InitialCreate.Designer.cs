@@ -12,7 +12,7 @@ using Mikhaylova_lr2;
 namespace Mikhaylova_lr2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251206182158_InitialCreate")]
+    [Migration("20251206200151_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

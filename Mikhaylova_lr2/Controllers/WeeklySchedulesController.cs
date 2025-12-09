@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Mikhaylova_lr2.Models;
+using Mikhaylova_lr2.Services;
 
 namespace Mikhaylova_lr2.Controllers
 {
@@ -10,11 +10,11 @@ namespace Mikhaylova_lr2.Controllers
     [Authorize]
     public class WeeklySchedulesController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IWeeklyScheduleService _weeklyScheduleService;
 
-        public WeeklySchedulesController(ApplicationDbContext context)
+        public WeeklySchedulesController(IWeeklyScheduleService weeklyScheduleService)
         {
-            _context = context;
+            _weeklyScheduleService = weeklyScheduleService;
         }
 
         // GET: api/WeeklySchedules
@@ -22,10 +22,8 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<IEnumerable<WeeklySchedule>>> GetWeeklySchedules()
         {
-            return await _context.WeeklySchedules
-                .Include(w => w.Classes)
-                .ThenInclude(c => c.Subject)
-                .ToListAsync();
+            var schedules = await _weeklyScheduleService.GetAllAsync();
+            return Ok(schedules);
         }
 
         // GET: api/WeeklySchedules/5
@@ -33,16 +31,11 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<WeeklySchedule>> GetWeeklySchedule(int id)
         {
-            var weeklySchedule = await _context.WeeklySchedules
-                .Include(w => w.Classes)
-                .ThenInclude(c => c.Subject)
-                .FirstOrDefaultAsync(w => w.Id == id);
-
+            var weeklySchedule = await _weeklyScheduleService.GetByIdAsync(id);
             if (weeklySchedule == null)
             {
                 return NotFound();
             }
-
             return weeklySchedule;
         }
 
@@ -51,15 +44,15 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "AdminOnly")]
         public async Task<ActionResult<WeeklySchedule>> PostWeeklySchedule(WeeklySchedule weeklySchedule)
         {
-            if (!weeklySchedule.IsDailyScheduleValid())
+            try
             {
-                return BadRequest("В день не может быть более 7 пар");
+                var createdSchedule = await _weeklyScheduleService.CreateAsync(weeklySchedule);
+                return CreatedAtAction("GetWeeklySchedule", new { id = createdSchedule.Id }, createdSchedule);
             }
-
-            _context.WeeklySchedules.Add(weeklySchedule);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetWeeklySchedule", new { id = weeklySchedule.Id }, weeklySchedule);
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT: api/WeeklySchedules/5
@@ -72,30 +65,23 @@ namespace Mikhaylova_lr2.Controllers
                 return BadRequest();
             }
 
-            if (!weeklySchedule.IsDailyScheduleValid())
-            {
-                return BadRequest("В день не может быть более 7 пар");
-            }
-
-            _context.Entry(weeklySchedule).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                await _weeklyScheduleService.UpdateAsync(weeklySchedule);
+                return NoContent();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (ArgumentException ex)
             {
-                if (!WeeklyScheduleExists(id))
+                return BadRequest(ex.Message);
+            }
+            catch (Exception)
+            {
+                if (!await _weeklyScheduleService.ExistsAsync(id))
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
-
-            return NoContent();
         }
 
         // DELETE: api/WeeklySchedules/5
@@ -103,16 +89,15 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "AdminOnly")]
         public async Task<IActionResult> DeleteWeeklySchedule(int id)
         {
-            var weeklySchedule = await _context.WeeklySchedules.FindAsync(id);
-            if (weeklySchedule == null)
+            try
             {
-                return NotFound();
+                await _weeklyScheduleService.DeleteAsync(id);
+                return NoContent();
             }
-
-            _context.WeeklySchedules.Remove(weeklySchedule);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            catch (Exception)
+            {
+                return StatusCode(500, "Internal server error");
+            }
         }
 
         // === ДОПОЛНИТЕЛЬНЫЕ ЗАПРОСЫ ===
@@ -122,17 +107,11 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<WeeklySchedule>> GetWeeklyScheduleByGroup(string groupNumber, int weekNumber)
         {
-            var weeklySchedule = await _context.WeeklySchedules
-                .Include(w => w.Classes)
-                .ThenInclude(c => c.Subject)
-                .Where(w => w.GroupNumber == groupNumber && w.WeekNumber == weekNumber)
-                .FirstOrDefaultAsync();
-
+            var weeklySchedule = await _weeklyScheduleService.GetByGroupAndWeekAsync(groupNumber, weekNumber);
             if (weeklySchedule == null)
             {
                 return NotFound();
             }
-
             return weeklySchedule;
         }
 
@@ -141,16 +120,8 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<IEnumerable<string>>> GetTeachersInWeeklySchedule(int id)
         {
-            var weeklySchedule = await _context.WeeklySchedules
-                .Include(w => w.Classes)
-                .FirstOrDefaultAsync(w => w.Id == id);
-
-            if (weeklySchedule == null)
-            {
-                return NotFound();
-            }
-
-            return weeklySchedule.GetAllTeachers();
+            var teachers = await _weeklyScheduleService.GetTeachersInWeeklyScheduleAsync(id);
+            return Ok(teachers);
         }
 
         // 3. Получить статистику по типам занятий за неделю
@@ -158,29 +129,12 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<object>> GetWeeklyStatistics(int id)
         {
-            var weeklySchedule = await _context.WeeklySchedules
-                .Include(w => w.Classes)
-                .FirstOrDefaultAsync(w => w.Id == id);
-
-            if (weeklySchedule == null)
+            var statistics = await _weeklyScheduleService.GetWeeklyStatisticsAsync(id);
+            if (statistics == null)
             {
                 return NotFound();
             }
-
-            var classTypesCount = weeklySchedule.GetClassTypesCount();
-            var totalClasses = weeklySchedule.Classes.Count;
-
-            return new
-            {
-                TotalClasses = totalClasses,
-                ClassTypes = classTypesCount,
-                TeachersCount = weeklySchedule.GetAllTeachers().Count
-            };
-        }
-
-        private bool WeeklyScheduleExists(int id)
-        {
-            return _context.WeeklySchedules.Any(e => e.Id == id);
+            return Ok(statistics);
         }
     }
 }

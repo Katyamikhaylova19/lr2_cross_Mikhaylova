@@ -1,4 +1,4 @@
-﻿using System;
+﻿Uusing System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable

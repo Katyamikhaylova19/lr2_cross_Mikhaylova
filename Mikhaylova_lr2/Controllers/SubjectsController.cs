@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Mikhaylova_lr2.Models;
+using Mikhaylova_lr2.Services;
 
 namespace Mikhaylova_lr2.Controllers
 {
@@ -10,11 +11,11 @@ namespace Mikhaylova_lr2.Controllers
     [Authorize]
     public class SubjectsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ISubjectService _subjectService;
 
-        public SubjectsController(ApplicationDbContext context)
+        public SubjectsController(ISubjectService subjectService)
         {
-            _context = context;
+            _subjectService = subjectService;
         }
 
         // GET: api/Subjects
@@ -22,7 +23,8 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<IEnumerable<Subject>>> GetSubjects()
         {
-            return await _context.Subjects.ToListAsync();
+            var subjects = await _subjectService.GetAllAsync();
+            return Ok(subjects);
         }
 
         // GET: api/Subjects/5
@@ -30,13 +32,11 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "UserOnly")]
         public async Task<ActionResult<Subject>> GetSubject(int id)
         {
-            var subject = await _context.Subjects.FindAsync(id);
-
+            var subject = await _subjectService.GetByIdAsync(id);
             if (subject == null)
             {
                 return NotFound();
             }
-
             return subject;
         }
 
@@ -45,15 +45,15 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "AdminOnly")]
         public async Task<ActionResult<Subject>> PostSubject(Subject subject)
         {
-            if (!subject.IsValidName())
+            try
             {
-                return BadRequest("Название предмета должно содержать от 3 до 100 символов");
+                var createdSubject = await _subjectService.CreateAsync(subject);
+                return CreatedAtAction("GetSubject", new { id = createdSubject.Id }, createdSubject);
             }
-
-            _context.Subjects.Add(subject);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetSubject", new { id = subject.Id }, subject);
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT: api/Subjects/5
@@ -66,30 +66,23 @@ namespace Mikhaylova_lr2.Controllers
                 return BadRequest();
             }
 
-            if (!subject.IsValidName())
-            {
-                return BadRequest("Название предмета должно содержать от 3 до 100 символов");
-            }
-
-            _context.Entry(subject).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
+                await _subjectService.UpdateAsync(subject);
+                return NoContent();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (ArgumentException ex)
             {
-                if (!SubjectExists(id))
+                return BadRequest(ex.Message);
+            }
+            catch (Exception)
+            {
+                if (!await _subjectService.ExistsAsync(id))
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
-
-            return NoContent();
         }
 
         // DELETE: api/Subjects/5
@@ -97,21 +90,15 @@ namespace Mikhaylova_lr2.Controllers
         [Authorize(Policy = "AdminOnly")]
         public async Task<IActionResult> DeleteSubject(int id)
         {
-            var subject = await _context.Subjects.FindAsync(id);
-            if (subject == null)
+            try
             {
-                return NotFound();
+                await _subjectService.DeleteAsync(id);
+                return NoContent();
             }
-
-            _context.Subjects.Remove(subject);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool SubjectExists(int id)
-        {
-            return _context.Subjects.Any(e => e.Id == id);
+            catch (Exception)
+            {
+                return StatusCode(500, "Internal server error");
+            }
         }
     }
 }
