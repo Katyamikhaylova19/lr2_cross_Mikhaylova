@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Reflection.Emit;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Mikhaylova_lr2.Models;
+using Mikhaylova_lr2.Models.Auth;
 
 namespace Mikhaylova_lr2
 {
@@ -12,57 +11,43 @@ namespace Mikhaylova_lr2
         {
         }
 
-        public DbSet<Subject> Subjects { get; set; }
-        public DbSet<ClassSchedule> ClassSchedules { get; set; }
-        public DbSet<WeeklySchedule> WeeklySchedules { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
+        public DbSet<StudentTeacher> StudentTeachers { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Subject>()
-                .HasKey(s => s.Id);
-            modelBuilder.Entity<Subject>()
-                .Property(s => s.Name)
-                .IsRequired()
-                .HasMaxLength(100);
+            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<ClassSchedule>()
-                .HasKey(c => c.Id);
-            modelBuilder.Entity<ClassSchedule>()
-                .Property(c => c.Classroom)
-                .IsRequired()
-                .HasMaxLength(10);
-            modelBuilder.Entity<ClassSchedule>()
-                .Property(c => c.GroupNumber)
-                .IsRequired()
-                .HasMaxLength(8); // Формат: XX-00-00
-            modelBuilder.Entity<ClassSchedule>()
-                .Property(c => c.ClassType)
-                .IsRequired()
-                .HasMaxLength(50);
-            modelBuilder.Entity<ClassSchedule>()
-                .Property(c => c.TeacherName)
-                .IsRequired()
-                .HasMaxLength(100);
+            modelBuilder.Entity<StudentTeacher>()
+                .HasKey(st => new { st.StudentId, st.TeacherId });
 
-            // Связь ClassSchedule с Subject
-            modelBuilder.Entity<ClassSchedule>()
-                .HasOne(c => c.Subject)
+            modelBuilder.Entity<StudentTeacher>()
+                .HasOne(st => st.Student)
+                .WithMany(s => s.StudentTeachers)
+                .HasForeignKey(st => st.StudentId);
+
+            modelBuilder.Entity<StudentTeacher>()
+                .HasOne(st => st.Teacher)
+                .WithMany(t => t.StudentTeachers)
+                .HasForeignKey(st => st.TeacherId);
+
+            modelBuilder.Entity<Rating>()
+                .HasCheckConstraint("CK_Rating_Stars", "[Stars] >= 1 AND [Stars] <= 5");
+
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Student)
                 .WithMany()
-                .HasForeignKey(c => c.SubjectId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey(u => u.StudentId)
+                .OnDelete(DeleteBehavior.SetNull);
 
-            // Настройка WeeklySchedule
-            modelBuilder.Entity<WeeklySchedule>()
-                .HasKey(w => w.Id);
-            modelBuilder.Entity<WeeklySchedule>()
-                .Property(w => w.GroupNumber)
-                .IsRequired()
-                .HasMaxLength(8);
-            modelBuilder.Entity<WeeklySchedule>()
-                .HasMany(w => w.Classes)
-                .WithOne()
-                .HasForeignKey(c => c.Id)
-                .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Teacher)
+                .WithMany()
+                .HasForeignKey(u => u.TeacherId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }
