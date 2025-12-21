@@ -1,38 +1,51 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Mikhaylova_lr2.Models
+namespace Mikhaylova_lr2.Models;
+
+public class Teacher
 {
-    public class Teacher
+    [Key]
+    public int Id { get; set; }
+
+    [Required]
+    [MaxLength(100)]
+    public string FirstName { get; set; } = string.Empty;
+
+    [Required]
+    [MaxLength(100)]
+    public string LastName { get; set; } = string.Empty;
+
+    [MaxLength(100)]
+    public string? MiddleName { get; set; }
+
+    // Навигационные свойства
+    [JsonIgnore] public virtual ICollection<TeacherGroup> TeacherGroups { get; set; } = new List<TeacherGroup>();
+    [JsonIgnore] public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
+
+    // Бизнес-методы
+    public string GetFullName()
     {
-        public int Id { get; set; }
-        [Required, StringLength(100)] public string LastName { get; set; }
-        [Required, StringLength(100)] public string FirstName { get; set; }
-        [StringLength(100)] public string? MiddleName { get; set; }
+        return $"{LastName} {FirstName} {MiddleName}".Trim();
+    }
 
-        public string FullName => GetFullName();
+    public double CalculateAverageRating()
+    {
+        if (Ratings == null || !Ratings.Any())
+            return 0;
 
-        [JsonIgnore] public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
-        [JsonIgnore] public virtual ICollection<StudentTeacher> StudentTeachers { get; set; } = new List<StudentTeacher>();
+        return Ratings.Average(r => r.Score);
+    }
 
-        public string GetFullName()
-        {
-            return MiddleName != null
-                ? $"{LastName} {FirstName} {MiddleName}"
-                : $"{LastName} {FirstName}";
-        }
+    public bool HasRatingFromStudent(int studentId)
+    {
+        return Ratings?.Any(r => r.StudentId == studentId) ?? false;
+    }
 
-        public double CalculateAverageRating()
-        {
-            if (Ratings == null || !Ratings.Any())
-                return 0;
-
-            return Ratings.Average(r => r.Stars);
-        }
-
-        public int GetRatingsCount()
-        {
-            return Ratings?.Count ?? 0;
-        }
+    public IEnumerable<string> GetTeachingGroups()
+    {
+        return TeacherGroups?.Select(tg => tg.Group?.GroupNumber ?? "")
+               ?? Enumerable.Empty<string>();
     }
 }

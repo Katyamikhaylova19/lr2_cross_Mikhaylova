@@ -1,46 +1,59 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Mikhaylova_lr2.Models
+namespace Mikhaylova_lr2.Models;
+
+public class Rating
 {
-    public class Rating
+    [Key]
+    public int Id { get; set; }
+
+    [Required]
+    [Range(1, 5)]
+    public int Score { get; set; }
+
+    [MaxLength(1000)]
+    public string? Review { get; set; }
+
+    [Required]
+    public bool IsAnonymous { get; set; }
+
+    public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+
+    // Внешние ключи
+    [Required]
+    public int StudentId { get; set; }
+
+    [Required]
+    public int TeacherId { get; set; }
+
+    // Навигационные свойства
+    [ForeignKey("StudentId")]
+    [JsonIgnore] public virtual Student Student { get; set; } = null!;
+
+    [ForeignKey("TeacherId")]
+    [JsonIgnore] public virtual Teacher Teacher { get; set; } = null!;
+
+    // Бизнес-методы
+    public string GetReviewAuthor()
     {
-        public int Id { get; set; }
-        [Required, Range(1, 5)] public int Stars { get; set; }
-        [StringLength(1000)] public string? Review { get; set; }
-        public bool IsAnonymous { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        if (IsAnonymous)
+            return "Аноним";
 
-        public int TeacherId { get; set; }
-        public int StudentId { get; set; }
+        return $"{Student?.LastName} {Student?.FirstName?.Substring(0, 1)}.";
+    }
 
-        [JsonIgnore] public virtual Teacher Teacher { get; set; }
-        [JsonIgnore] public virtual Student Student { get; set; }
+    public bool CanBeModifiedByStudent(int studentId)
+    {
+        return StudentId == studentId;
+    }
 
-        public string GetReviewerDisplayName()
-        {
-            if (IsAnonymous)
-                return "Анонимный пользователь";
-
-            return Student?.FullName ?? "Неизвестный студент";
-        }
-
-        public string GetStarsDisplay()
-        {
-            return new string('★', Stars) + new string('☆', 5 - Stars);
-        }
-
-        public bool IsValidForStudent(Student student)
-        {
-            if (student == null)
-                return false;
-
-            return student.CanRateTeacher(TeacherId);
-        }
-
-        public void SetAnonymous(bool isAnonymous)
-        {
-            IsAnonymous = isAnonymous;
-        }
+    public void UpdateRating(int score, string? review, bool isAnonymous)
+    {
+        Score = score;
+        Review = review;
+        IsAnonymous = isAnonymous;
+        CreatedDate = DateTime.UtcNow;
     }
 }

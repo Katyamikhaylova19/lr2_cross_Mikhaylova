@@ -1,94 +1,85 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\",
+  "WorkspaceRootPath": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251217201817_AddUsersTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251217201817_AddUsersTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\teachergroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\teachergroup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\controllers\\ratingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:controllers\\ratingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\controllers\\teacherscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:controllers\\teacherscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\services\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:services\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\auth\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\auth\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\teacherratingapi.postman_collection.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:teacherratingapi.postman_collection.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\auth\\registermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\auth\\registermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\auth\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\auth\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\auth\\tokenresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\auth\\tokenresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251217191458_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251217191458_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\studentteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\studentteacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\services\\ratingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\rating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251221194814_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251221194814_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\models\\auth\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:models\\auth\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\controllers\\ratingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:controllers\\ratingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\controllers\\teacherscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:controllers\\teacherscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\services\\ratingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:services\\ratingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\dansi\\documents\\katya\\lr2_cross_mikhaylova\\mikhaylova_lr2\\services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:services\\studentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\services\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:services\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|c:\\users\\katyamihailova\\documents\\cross\\lr2_cross_mikhaylova\\mikhaylova_lr2\\teacherratingapi.postman_collection.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9AB3F6B2-C658-4654-B322-E17DEDA1DA2F}|Mikhaylova_lr2.csproj|solutionrelative:teacherratingapi.postman_collection.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251217191458_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -98,273 +89,277 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 10,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20251217201817_AddUsersTable.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251217201817_AddUsersTable.cs",
-              "RelativeDocumentMoniker": "Migrations\\20251217201817_AddUsersTable.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251217201817_AddUsersTable.cs",
-              "RelativeToolTip": "Migrations\\20251217201817_AddUsersTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "20251221194814_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251221194814_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251221194814_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251221194814_InitialCreate.cs",
+              "RelativeToolTip": "Migrations\\20251221194814_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T20:18:17.996Z",
+              "WhenOpened": "2025-12-21T19:48:15.265Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\AuthService.cs",
-              "RelativeToolTip": "Services\\AuthService.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAAwGIAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T19:12:01.949Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Program.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-06T16:46:47.187Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\ApplicationDbContext.cs",
-              "RelativeToolTip": "ApplicationDbContext.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAABEAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T17:28:55.327Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "TeacherService.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\TeacherService.cs",
-              "RelativeDocumentMoniker": "Services\\TeacherService.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\TeacherService.cs",
-              "RelativeToolTip": "Services\\TeacherService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:38:25.569Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "TeachersController.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\TeachersController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TeachersController.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\TeachersController.cs",
-              "RelativeToolTip": "Controllers\\TeachersController.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAwwEoAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:51:12.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StudentsController.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\StudentsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\StudentsController.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\StudentsController.cs",
-              "RelativeToolTip": "Controllers\\StudentsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:51:37.32Z"
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-06T17:54:59.997Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "RatingsController.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\RatingsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\RatingsController.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\RatingsController.cs",
-              "RelativeToolTip": "Controllers\\RatingsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "Models\\Student.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Student.cs*",
+              "RelativeToolTip": "Models\\Student.cs*",
+              "ViewState": "AgIAAAwAAAAAmpmZmZkdwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:51:49.708Z"
+              "WhenOpened": "2025-12-17T18:27:24.397Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-06T17:54:59.997Z"
+              "DocumentIndex": 3,
+              "Title": "Group.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Group.cs",
+              "RelativeDocumentMoniker": "Models\\Group.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Group.cs*",
+              "RelativeToolTip": "Models\\Group.cs*",
+              "ViewState": "AgIAAAkAAAAwAAAAAOAwwBEAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T16:36:11.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Rating.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Rating.cs",
+              "RelativeDocumentMoniker": "Models\\Rating.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Rating.cs*",
+              "RelativeToolTip": "Models\\Rating.cs*",
+              "ViewState": "AgIAABUAAAAAAgAAAAD4vyMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T18:30:22.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Teacher.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Teacher.cs",
+              "RelativeDocumentMoniker": "Models\\Teacher.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Teacher.cs*",
+              "RelativeToolTip": "Models\\Teacher.cs*",
+              "ViewState": "AgIAAAYAAAAAMzMzM/M7wBgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T18:26:42.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TeacherGroup.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\TeacherGroup.cs",
+              "RelativeDocumentMoniker": "Models\\TeacherGroup.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\TeacherGroup.cs",
+              "RelativeToolTip": "Models\\TeacherGroup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T16:37:34.072Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "LoginModel.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Auth\\LoginModel.cs",
-              "RelativeDocumentMoniker": "Models\\Auth\\LoginModel.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Auth\\LoginModel.cs",
-              "RelativeToolTip": "Models\\Auth\\LoginModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAATAAAAAAAAAA==",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwBsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:36:05.234Z"
+              "WhenOpened": "2025-12-06T18:13:08.09Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "TeacherRatingAPI.postman_collection.json",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\TeacherRatingAPI.postman_collection.json",
-              "RelativeDocumentMoniker": "TeacherRatingAPI.postman_collection.json",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\TeacherRatingAPI.postman_collection.json",
-              "RelativeToolTip": "TeacherRatingAPI.postman_collection.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI8AAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-06T18:47:44.56Z"
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\AuthService.cs",
+              "RelativeToolTip": "Services\\AuthService.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAqwDoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T19:12:01.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T17:28:55.327Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAA/wDUAAAA1AAAAAAAAAA==",
+              "Title": "LoginModel.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Auth\\LoginModel.cs",
+              "RelativeDocumentMoniker": "Models\\Auth\\LoginModel.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Auth\\LoginModel.cs",
+              "RelativeToolTip": "Models\\Auth\\LoginModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-06T18:13:08.09Z"
+              "WhenOpened": "2025-12-21T18:47:46.918Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "RegisterModel.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Auth\\RegisterModel.cs",
-              "RelativeDocumentMoniker": "Models\\Auth\\RegisterModel.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Auth\\RegisterModel.cs",
-              "RelativeToolTip": "Models\\Auth\\RegisterModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Title": "RatingsController.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\RatingsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RatingsController.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\RatingsController.cs",
+              "RelativeToolTip": "Controllers\\RatingsController.cs",
+              "ViewState": "AgIAABUAAAAAmJmZmRkuwJ8AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T19:21:59.906Z"
+              "WhenOpened": "2025-12-17T18:51:49.708Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Auth\\User.cs",
-              "RelativeDocumentMoniker": "Models\\Auth\\User.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Auth\\User.cs",
-              "RelativeToolTip": "Models\\Auth\\User.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAABCAAAAAAAAAA==",
+              "Title": "StudentsController.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\StudentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StudentsController.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\StudentsController.cs",
+              "RelativeToolTip": "Controllers\\StudentsController.cs",
+              "ViewState": "AgIAAFsAAAAslpmZmRkowHAAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T19:18:20.511Z"
+              "WhenOpened": "2025-12-17T18:51:37.32Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "TokenResponse.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Auth\\TokenResponse.cs",
-              "RelativeDocumentMoniker": "Models\\Auth\\TokenResponse.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Auth\\TokenResponse.cs",
-              "RelativeToolTip": "Models\\Auth\\TokenResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "Title": "TeachersController.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\TeachersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TeachersController.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Controllers\\TeachersController.cs",
+              "RelativeToolTip": "Controllers\\TeachersController.cs",
+              "ViewState": "AgIAAI8AAACAopmZmZn1vx0AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T19:20:56.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "20251217191458_InitialCreate.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251217191458_InitialCreate.cs",
-              "RelativeDocumentMoniker": "Migrations\\20251217191458_InitialCreate.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251217191458_InitialCreate.cs",
-              "RelativeToolTip": "Migrations\\20251217191458_InitialCreate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T19:14:58.755Z"
+              "WhenOpened": "2025-12-17T18:51:12.832Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "Rating.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Rating.cs",
-              "RelativeDocumentMoniker": "Models\\Rating.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Rating.cs",
-              "RelativeToolTip": "Models\\Rating.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
+              "Title": "RatingService.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\RatingService.cs",
+              "RelativeDocumentMoniker": "Services\\RatingService.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\RatingService.cs",
+              "RelativeToolTip": "Services\\RatingService.cs",
+              "ViewState": "AgIAAC0AAACAmpmZmdkiwDUAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:30:22.099Z"
+              "WhenOpened": "2025-12-17T18:40:27.343Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "Student.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Student.cs",
-              "RelativeDocumentMoniker": "Models\\Student.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Student.cs",
-              "RelativeToolTip": "Models\\Student.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Title": "TeacherService.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\TeacherService.cs",
+              "RelativeDocumentMoniker": "Services\\TeacherService.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\TeacherService.cs",
+              "RelativeToolTip": "Services\\TeacherService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:27:24.397Z"
+              "WhenOpened": "2025-12-17T18:38:25.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "StudentService.cs",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\StudentService.cs",
+              "RelativeDocumentMoniker": "Services\\StudentService.cs",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\StudentService.cs",
+              "RelativeToolTip": "Services\\StudentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T18:39:41.852Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "StudentTeacher.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\StudentTeacher.cs",
-              "RelativeDocumentMoniker": "Models\\StudentTeacher.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\StudentTeacher.cs",
-              "RelativeToolTip": "Models\\StudentTeacher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:28:44.043Z"
+              "Title": "TeacherRatingAPI.postman_collection.json",
+              "DocumentMoniker": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\TeacherRatingAPI.postman_collection.json",
+              "RelativeDocumentMoniker": "TeacherRatingAPI.postman_collection.json",
+              "ToolTip": "C:\\Users\\katyamihailova\\Documents\\cross\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\TeacherRatingAPI.postman_collection.json",
+              "RelativeToolTip": "TeacherRatingAPI.postman_collection.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI8AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-06T18:47:44.56Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "Teacher.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Teacher.cs",
-              "RelativeDocumentMoniker": "Models\\Teacher.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Models\\Teacher.cs",
-              "RelativeToolTip": "Models\\Teacher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAVAAAAAAAAAA==",
+              "Title": "20251217191458_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251217191458_InitialCreate.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251217191458_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251217191458_InitialCreate.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Migrations\\20251217191458_InitialCreate.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:26:42.97Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "StudentService.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\StudentService.cs",
-              "RelativeDocumentMoniker": "Services\\StudentService.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\StudentService.cs",
-              "RelativeToolTip": "Services\\StudentService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:39:41.852Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "RatingService.cs",
-              "DocumentMoniker": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\RatingService.cs",
-              "RelativeDocumentMoniker": "Services\\RatingService.cs",
-              "ToolTip": "C:\\Users\\dansi\\Documents\\katya\\lr2_cross_Mikhaylova\\Mikhaylova_lr2\\Services\\RatingService.cs",
-              "RelativeToolTip": "Services\\RatingService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T18:40:27.343Z"
+              "WhenOpened": "2025-12-17T19:14:58.755Z"
             }
           ]
         }

@@ -1,118 +1,116 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Mikhaylova_lr2.Data;
 using Mikhaylova_lr2.Models;
 
-namespace Mikhaylova_lr2.Services
+namespace Mikhaylova_lr2.Services;
+
+public interface IStudentService
 {
-    public interface IStudentService
+    Task<Student?> GetStudentByIdAsync(int id);
+    Task<IEnumerable<Student>> GetAllStudentsAsync();
+    Task<Student> CreateStudentAsync(Student student);
+    Task<Student> UpdateStudentAsync(int id, Student student);
+    Task<bool> DeleteStudentAsync(int id);
+    Task<IEnumerable<Student>> GetStudentsByGroupAsync(int groupId);
+    Task<bool> CanStudentRateTeacherAsync(int studentId, int teacherId);
+    Task<IEnumerable<object>> GetStudentRatingsReportAsync(int studentId);
+}
+
+public class StudentService : IStudentService
+{
+    private readonly AppDbContext _context;
+
+    public StudentService(AppDbContext context)
     {
-        Task<IEnumerable<Student>> GetAllStudentsAsync();
-        Task<Student?> GetStudentByIdAsync(int id);
-        Task<Student> CreateStudentAsync(Student student);
-        Task UpdateStudentAsync(Student student);
-        Task DeleteStudentAsync(int id);
-        Task<bool> AssignTeacherToStudentAsync(int studentId, int teacherId);
-        Task<IEnumerable<Teacher>> GetTeachersByStudentIdAsync(int studentId);
-        Task<IEnumerable<object>> GetStudentsByGroupAsync(string groupNumber);
+        _context = context;
     }
 
-    public class StudentService : IStudentService
+    public async Task<Student?> GetStudentByIdAsync(int id)
     {
-        private readonly ApplicationDbContext _context;
-
-        public StudentService(ApplicationDbContext context)
-        {
-            _context = context;
-        }
-
-        public async Task<IEnumerable<Student>> GetAllStudentsAsync()
-        {
-            return await _context.Students.ToListAsync();
-        }
-
-        public async Task<Student?> GetStudentByIdAsync(int id)
-        {
-            return await _context.Students
-                .Include(s => s.Ratings)
+        return await _context.Students
+            .Include(s => s.Group)
+            .Include(s => s.Ratings)
                 .ThenInclude(r => r.Teacher)
-                .Include(s => s.StudentTeachers)
-                .ThenInclude(st => st.Teacher)
-                .FirstOrDefaultAsync(s => s.Id == id);
-        }
+            .FirstOrDefaultAsync(s => s.Id == id);
+    }
 
-        public async Task<Student> CreateStudentAsync(Student student)
+    public async Task<IEnumerable<Student>> GetAllStudentsAsync()
+    {
+        return await _context.Students
+            .Include(s => s.Group)
+            .Include(s => s.Ratings)
+            .ToListAsync();
+    }
+
+    public async Task<Student> CreateStudentAsync(Student student)
+    {
+        _context.Students.Add(student);
+        await _context.SaveChangesAsync();
+        return student;
+    }
+
+    public async Task<Student> UpdateStudentAsync(int id, Student student)
+    {
+        var existingStudent = await _context.Students.FindAsync(id);
+        if (existingStudent == null)
+            throw new ArgumentException("Student not found");
+
+        existingStudent.FirstName = student.FirstName;
+        existingStudent.LastName = student.LastName;
+        existingStudent.MiddleName = student.MiddleName;
+        existingStudent.GroupId = student.GroupId;
+
+        await _context.SaveChangesAsync();
+        return existingStudent;
+    }
+
+    public async Task<bool> DeleteStudentAsync(int id)
+    {
+        var student = await _context.Students.FindAsync(id);
+        if (student == null)
+            return false;
+
+        _context.Students.Remove(student);
+        await _context.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<IEnumerable<Student>> GetStudentsByGroupAsync(int groupId)
+    {
+        return await _context.Students
+            .Where(s => s.GroupId == groupId)
+            .Include(s => s.Ratings)
+            .ToListAsync();
+    }
+
+    public async Task<bool> CanStudentRateTeacherAsync(int studentId, int teacherId)
+    {
+        var student = await _context.Students
+            .Include(s => s.Group)
+            .FirstOrDefaultAsync(s => s.Id == studentId);
+
+        if (student == null || student.Group == null)
+            return false;
+
+        return await _context.TeacherGroups
+            .AnyAsync(tg => tg.TeacherId == teacherId && tg.GroupId == student.GroupId);
+    }
+
+    public async Task<IEnumerable<object>> GetStudentRatingsReportAsync(int studentId)
+    {
+        var student = await GetStudentByIdAsync(studentId);
+        if (student == null)
+            return Enumerable.Empty<object>();
+
+        var report = student.Ratings.Select(r => new
         {
-            _context.Students.Add(student);
-            await _context.SaveChangesAsync();
-            return student;
-        }
+            Teacher = r.Teacher.GetFullName(),
+            Score = r.Score,
+            Review = r.Review,
+            IsAnonymous = r.IsAnonymous,
+            CreatedDate = r.CreatedDate
+        }).ToList();
 
-        public async Task UpdateStudentAsync(Student student)
-        {
-            _context.Entry(student).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task DeleteStudentAsync(int id)
-        {
-            var student = await _context.Students.FindAsync(id);
-            if (student != null)
-            {
-                _context.Students.Remove(student);
-                await _context.SaveChangesAsync();
-            }
-        }
-
-        public async Task<bool> AssignTeacherToStudentAsync(int studentId, int teacherId)
-        {
-            var student = await _context.Students.FindAsync(studentId);
-            var teacher = await _context.Teachers.FindAsync(teacherId);
-
-            if (student == null || teacher == null)
-                return false;
-
-            // Проверяем, не назначен ли уже этот преподаватель
-            var existing = await _context.StudentTeachers
-                .FirstOrDefaultAsync(st => st.StudentId == studentId && st.TeacherId == teacherId);
-
-            if (existing != null)
-                return false;
-
-            var studentTeacher = new StudentTeacher
-            {
-                StudentId = studentId,
-                TeacherId = teacherId
-            };
-
-            _context.StudentTeachers.Add(studentTeacher);
-            await _context.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<IEnumerable<Teacher>> GetTeachersByStudentIdAsync(int studentId)
-        {
-            var student = await _context.Students
-                .Include(s => s.StudentTeachers)
-                .ThenInclude(st => st.Teacher)
-                .FirstOrDefaultAsync(s => s.Id == studentId);
-
-            if (student == null)
-                return Enumerable.Empty<Teacher>();
-
-            return student.StudentTeachers.Select(st => st.Teacher);
-        }
-
-        public async Task<IEnumerable<object>> GetStudentsByGroupAsync(string groupNumber)
-        {
-            return await _context.Students
-                .Where(s => s.GroupNumber == groupNumber)
-                .Select(s => new
-                {
-                    s.Id,
-                    s.FullName,
-                    s.GroupNumber,
-                    RatingsCount = s.Ratings.Count
-                })
-                .ToListAsync();
-        }
+        return report;
     }
 }

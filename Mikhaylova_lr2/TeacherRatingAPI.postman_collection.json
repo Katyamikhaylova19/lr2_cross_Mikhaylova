@@ -1,192 +1,638 @@
 {
-  "info": {
-    "name": "Teacher Rating API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Auth",
-      "item": [
-        {
-          "name": "Register Admin",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"email\": \"admin@university.ru\",\n  \"password\": \"admin123\",\n  \"role\": \"Admin\"\n}"
-            },
-            "url": {
-              "raw": "{{baseUrl}}/api/auth/register",
-              "host": [ "{{baseUrl}}" ],
-              "path": [ "api", "auth", "register" ]
-            }
-          }
-        },
-        {
-          "name": "Login",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"email\": \"admin@university.ru\",\n  \"password\": \"admin123\"\n}"
-            },
-            "url": {
-              "raw": "{{baseUrl}}/api/auth/login",
-              "host": [ "{{baseUrl}}" ],
-              "path": [ "api", "auth", "login" ]
-            }
-          }
-        }
-      ]
+    "info": {
+        "name": "Teacher Rating API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
-    {
-      "name": "Teachers",
-      "item": [
+    "item": [
         {
-          "name": "Get All Teachers (Public)",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/api/teachers",
-              "host": [ "{{baseUrl}}" ],
-              "path": [ "api", "teachers" ]
-            }
-          }
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Login as User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"user\",\n    \"password\": \"user123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/auth/login",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "auth", "login" ]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "var jsonData = pm.response.json();",
+                                    "pm.environment.set(\"token\", jsonData);"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Login as Admin",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/auth/login",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "auth", "login" ]
+                        }
+                    },
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "var jsonData = pm.response.json();",
+                                    "pm.environment.set(\"token\", jsonData);"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         {
-          "name": "Get Teachers with Ratings (Auth Required)",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/api/teachers/with-ratings",
-              "host": [ "{{baseUrl}}" ],
-              "path": [ "api", "teachers", "with-ratings" ]
-            }
-          }
+            "name": "Teachers - Public",
+            "item": [
+                {
+                    "name": "Get All Teachers",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Teacher by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers/1",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers", "1" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Search Teachers",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers/search?name=михайлова",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers", "search" ],
+                            "query": [
+                                {
+                                    "key": "name",
+                                    "value": "михайлова"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
         },
         {
-          "name": "Create Teacher (Admin Only)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"lastName\": \"Иванов\",\n  \"firstName\": \"Петр\",\n  \"middleName\": \"Сергеевич\"\n}"
-            },
-            "url": {
-              "raw": "{{baseUrl}}/api/teachers",
-              "host": [ "{{baseUrl}}" ],
-              "path": [ "api", "teachers" ]
-            }
-          }
+            "name": "Teachers - Authorized (User)",
+            "item": [
+                {
+                    "name": "Get Top Rated Teachers",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers/top-rated?count=3",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers", "top-rated" ],
+                            "query": [
+                                {
+                                    "key": "count",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Teachers With No Ratings",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers/no-ratings",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers", "no-ratings" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Group Statistics",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers/group-statistics/АС-22-04",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers", "group-statistics", "АС-22-04" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Teacher Detailed Report",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers/1/detailed-report",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers", "1", "detailed-report" ]
+                        }
+                    }
+                }
+            ]
         },
         {
-          "name": "Get Top 5 Teachers",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/api/teachers/top/5",
-              "host": [ "{{baseUrl}}" ],
-              "path": [ "api", "teachers", "top", "5" ]
-            }
-          }
+            "name": "Teachers - Admin Only",
+            "item": [
+                {
+                    "name": "Create Teacher",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"firstName\": \"Иван\",\n    \"lastName\": \"Новиков\",\n    \"middleName\": \"Петрович\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Teacher",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 1,\n    \"firstName\": \"Татьяна\",\n    \"lastName\": \"Михайлова\",\n    \"middleName\": \"Папилина\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers/1",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers", "1" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Teacher",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers/4",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers", "4" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Add Teacher to Group",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers/1/groups/3",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers", "1", "groups", "3" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Remove Teacher from Group",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/teachers/1/groups/3",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "teachers", "1", "groups", "3" ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Students - Public",
+            "item": [
+                {
+                    "name": "Get All Students",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/students",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "students" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Student by ID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/students/1",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "students", "1" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Students by Group",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/students/by-group/1",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "students", "by-group", "1" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Students With Ratings",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/students/with-ratings",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "students", "with-ratings" ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Students - Authorized",
+            "item": [
+                {
+                    "name": "Get Student Ratings Report",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/students/1/ratings-report",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "students", "1", "ratings-report" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Student (Admin)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"firstName\": \"Андрей\",\n    \"lastName\": \"Семенов\",\n    \"middleName\": \"Иванович\",\n    \"groupId\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/students",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "students" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Student (Admin)",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 7,\n    \"firstName\": \"Андрей\",\n    \"lastName\": \"Семенов\",\n    \"middleName\": \"Иванович\",\n    \"groupId\": 2\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/students/7",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "students", "7" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Student (Admin)",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/students/7",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "students", "7" ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Ratings - All require auth",
+            "item": [
+                {
+                    "name": "Get All Ratings",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ratings",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "ratings" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Rating by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ratings/1",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "ratings", "1" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Ratings by Teacher",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ratings/teacher/1",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "ratings", "teacher", "1" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Ratings by Student (Admin)",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ratings/student/1",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "ratings", "student", "1" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get My Ratings",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ratings/my-ratings",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "ratings", "my-ratings" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get High Rated",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ratings/high-rated",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "ratings", "high-rated" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Create Rating",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"score\": 5,\n    \"review\": \"Отличный преподаватель, все понятно объясняет\",\n    \"isAnonymous\": false,\n    \"teacherId\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ratings",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "ratings" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Rating",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 1,\n    \"score\": 4,\n    \"review\": \"Хороший преподаватель, но можно улучшить практические задания\",\n    \"isAnonymous\": true,\n    \"teacherId\": 1,\n    \"studentId\": 1\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ratings/1",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "ratings", "1" ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Rating",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{token}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/ratings/1",
+                            "host": [ "{{baseUrl}}" ],
+                            "path": [ "api", "ratings", "1" ]
+                        }
+                    }
+                }
+            ]
         }
-      ]
-    },
-    {
-      "name": "Students",
-      "item": [
+    ],
+    "variable": [
         {
-          "name": "Create Student (Admin Only)",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"lastName\": \"Сидоров\",\n  \"firstName\": \"Алексей\",\n  \"middleName\": \"Викторович\",\n  \"groupNumber\": \"АС-22-04\"\n}"
-            },
-            "url": {
-              "raw": "{{baseUrl}}/api/students",
-              "host": [ "{{baseUrl" ]
-            },
-            "path": [ "api", "students" ]
-          }
-        }
-    }
-  ]
-},
-    {
-      "name": "Ratings",
-      "item": [
-        {
-          "name": "Create Rating",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"stars\": 5,\n  \"review\": \"Отличный преподаватель!\",\n  \"isAnonymous\": false,\n  \"teacherId\": 1,\n  \"studentId\": 1\n}"
-            },
-            "url": {
-              "raw": "{{baseUrl}}/api/ratings",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "ratings"]
-            }
-          }
+            "key": "baseUrl",
+            "value": "https://localhost:7036"
         },
         {
-          "name": "Get Anonymous Ratings (Auth Required)",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}"
-              }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/api/ratings/anonymous",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "ratings", "anonymous"]
-            }
-          }
+            "key": "token",
+            "value": ""
         }
-      ]
-    }
-  ],
-  "variable": [
-    {
-      "key": "baseUrl",
-      "value": "https://localhost:7197"
-    },
-    {
-      "key": "token",
-      "value": ""
-    }
-  ]
+    ]
 }

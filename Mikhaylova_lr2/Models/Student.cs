@@ -1,39 +1,49 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
 
-namespace Mikhaylova_lr2.Models
+namespace Mikhaylova_lr2.Models;
+
+public class Student
 {
-    public class Student
+    [Key]
+    public int Id { get; set; }
+
+    [Required]
+    [MaxLength(100)]
+    public string FirstName { get; set; } = string.Empty;
+
+    [Required]
+    [MaxLength(100)]
+    public string LastName { get; set; } = string.Empty;
+
+    [MaxLength(100)]
+    public string? MiddleName { get; set; }
+
+    [Required]
+    public int GroupId { get; set; }
+
+    // Навигационные свойства
+    [ForeignKey("GroupId")]
+    [JsonIgnore] public virtual Group Group { get; set; } = null!;
+    [JsonIgnore]  public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
+
+    // Бизнес-методы
+    public string GetFullName()
     {
-        public int Id { get; set; }
-        [Required, StringLength(100)] public string LastName { get; set; }
-        [Required, StringLength(100)] public string FirstName { get; set; }
-        [StringLength(100)] public string? MiddleName { get; set; }
+        return $"{LastName} {FirstName} {MiddleName}".Trim();
+    }
 
-        [Required, StringLength(10), RegularExpression(@"^[А-Я]{2}-\d{2}-\d{2}$", ErrorMessage = "Формат группы: XX-00-00")]
-        public string GroupNumber { get; set; }
+    public bool CanRateTeacher(Teacher teacher)
+    {
+        if (teacher == null || Group == null) return false;
 
-        public string FullName => GetFullName();
+        // Проверяем, преподает ли учитель в группе студента
+        return teacher.TeacherGroups?.Any(tg => tg.GroupId == GroupId) ?? false;
+    }
 
-        [JsonIgnore] public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
-        [JsonIgnore] public virtual ICollection<StudentTeacher> StudentTeachers { get; set; } = new List<StudentTeacher>();
-
-        public string GetFullName()
-        {
-            return MiddleName != null
-                ? $"{LastName} {FirstName} {MiddleName}"
-                : $"{LastName} {FirstName}";
-        }
-
-        public bool CanRateTeacher(int teacherId)
-        {
-            return StudentTeachers?.Any(st => st.TeacherId == teacherId) ?? false;
-        }
-
-        public bool ValidateGroupNumber()
-        {
-            return Regex.IsMatch(GroupNumber, @"^[А-Я]{2}-\d{2}-\d{2}$");
-        }
+    public Rating? GetRatingForTeacher(int teacherId)
+    {
+        return Ratings?.FirstOrDefault(r => r.TeacherId == teacherId);
     }
 }
